@@ -1,7 +1,7 @@
 using UnityEditor;
 using UnityEditor.Build;
 
-namespace ProjectEssentials.Trace.Editor
+namespace Essentials.Trace.Editor
 {
     /// <summary>
     /// Contains all the MenuItems under the "Trace" option in the toolbar

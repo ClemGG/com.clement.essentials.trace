@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace ProjectEssentials.Trace.Samples
+namespace Essentials.Trace.Samples
 {
     /// <summary>
     /// Test script to showcase the use of the Trace class.

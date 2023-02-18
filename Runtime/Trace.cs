@@ -1,7 +1,7 @@
 using System.Diagnostics;
 using UnityEngine;
 
-namespace ProjectEssentials.Trace
+namespace Essentials.Trace
 {
     /// <summary>
     /// Used to write logs more easily
