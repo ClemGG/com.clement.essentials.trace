@@ -1,0 +1,16 @@
+{
+    "name": "Clement.Essentials.Trace.Samples",
+    "rootNamespace": "",
+    "references": [
+        "GUID:bf3d577813da48d498a5452c3ab25a6c"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
