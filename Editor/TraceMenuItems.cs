@@ -8,13 +8,13 @@ namespace ProjectEssentials.Trace.Editor
     /// </summary>
     public sealed class TraceMenuItems : IActiveBuildTargetChanged
     {
-        #region Constantes
+        #region Constants
 
         public const string ENABLE_LOGS_PATH = "Trace/Enable Logs";
 
         #endregion
 
-        #region Propriétés
+        #region Properties
 
         /// <summary>
         /// Used by the IActiveBuildTargetChanged interface
@@ -23,7 +23,7 @@ namespace ProjectEssentials.Trace.Editor
 
         #endregion
 
-        #region Fonctions publiques
+        #region Public methods
 
         /// <summary>
         /// Called when the targeted platform changes
@@ -65,7 +65,7 @@ namespace ProjectEssentials.Trace.Editor
 
         #endregion
 
-        #region Fonctions privées
+        #region Private methods
 
         /// <summary>
         /// Enables or disables logs in a standalone build (always logs in the editor)

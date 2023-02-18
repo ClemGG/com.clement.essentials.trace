@@ -9,9 +9,13 @@ namespace ProjectEssentials.Trace.Samples
     /// </summary>
     public class TraceTest : MonoBehaviour
     {
+        #region Public methods
+
         void Start()
         {
             Trace.Log("Trace logs are enabled.");
         }
+
+        #endregion
     }
 }

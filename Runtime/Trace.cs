@@ -9,13 +9,13 @@ namespace ProjectEssentials.Trace
     /// </summary>
     public static class Trace
     {
-        #region Constantes
+        #region Constants
 
         public const string ENABLE_LOGS_SYMBOL = "ENABLE_LOGS_IN_BUILD";
 
         #endregion
 
-        #region Fonctions publiques
+        #region Public methods
 
         /// <summary>
         /// Identical to Debug.Log, but is only compiled in the editor
