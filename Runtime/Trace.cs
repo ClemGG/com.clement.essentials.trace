@@ -4,9 +4,8 @@ using UnityEngine;
 namespace ProjectEssentials.Trace
 {
     /// <summary>
-    /// Utilisée pour écrire plus facilement des logs
-    /// uniquement dans l'éditeur ou sur un build en mode développement
-    /// (Ne pas oublier de mettre le symbole dans Project Settings > Player > Scripting Define Symbols)
+    /// Used to write logs more easily
+    /// and to discard them automatically in a build if needed
     /// </summary>
     public static class Trace
     {
@@ -19,10 +18,10 @@ namespace ProjectEssentials.Trace
         #region Fonctions publiques
 
         /// <summary>
-        /// Identique à Debug.Log, mais n'est compilée que dans l'éditeur
-        /// ou un build avec "ENABLE_LOGS" définie comme directive
+        /// Identical to Debug.Log, but is only compiled in the editor
+        /// or in a build with "ENABLE_LOGS_IN_BUILD" added as a scripting define symbol
         /// </summary>
-        /// <param name="msg">L'objet à afficher dans la console</param>
+        /// <param name="msg">The object to print in the console</param>
         [Conditional(ENABLE_LOGS_SYMBOL), Conditional("UNITY_EDITOR")]
         public static void Log(object msg)
         {
@@ -30,10 +29,11 @@ namespace ProjectEssentials.Trace
         }
 
         /// <summary>
-        /// Identique à Debug.Log
+        /// Identical to Debug.Log, but is only compiled in the editor
+        /// or in a build with "ENABLE_LOGS_IN_BUILD" added as a scripting define symbol
         /// </summary>
-        /// <param name="msg">L'objet à afficher dans la console</param>
-        /// <param name="context">L'objet Unity à surligner pour indiquer la provenance du message</param>
+        /// <param name="msg">The object to print in the console</param>
+        /// <param name="context">The UnityObject to highlight to trace the call back to its source</param>
         [Conditional(ENABLE_LOGS_SYMBOL), Conditional("UNITY_EDITOR")]
         public static void Log(object msg, Object context)
         {
@@ -41,9 +41,10 @@ namespace ProjectEssentials.Trace
         }
 
         /// <summary>
-        /// Identique à Debug.LogWarning
+        /// Identical to Debug.LogWarning, but is only compiled in the editor
+        /// or in a build with "ENABLE_LOGS_IN_BUILD" added as a scripting define symbol
         /// </summary>
-        /// <param name="msg">L'objet à afficher dans la console</param>
+        /// <param name="msg">The object to print in the console</param>
         [Conditional(ENABLE_LOGS_SYMBOL), Conditional("UNITY_EDITOR")]
         public static void LogWarning(object msg)
         {
@@ -51,10 +52,11 @@ namespace ProjectEssentials.Trace
         }
 
         /// <summary>
-        /// Identique à Debug.Log
+        /// Identical to Debug.LogWarning, but is only compiled in the editor
+        /// or in a build with "ENABLE_LOGS_IN_BUILD" added as a scripting define symbol
         /// </summary>
-        /// <param name="msg">L'objet à afficher dans la console</param>
-        /// <param name="context">L'objet Unity à surligner pour indiquer la provenance du message</param>
+        /// <param name="msg">The object to print in the console</param>
+        /// <param name="context">The UnityObject to highlight to trace the call back to its source</param>
         [Conditional(ENABLE_LOGS_SYMBOL), Conditional("UNITY_EDITOR")]
         public static void LogWarning(object msg, Object context)
         {
@@ -62,9 +64,11 @@ namespace ProjectEssentials.Trace
         }
 
         /// <summary>
-        /// Identique à Debug.LogError
+        /// Identical to Debug.LogError, but is only compiled in the editor
+        /// or in a build with "ENABLE_LOGS_IN_BUILD" added as a scripting define symbol
         /// </summary>
-        /// <param name="msg">L'objet à afficher dans la console</param>
+        /// <param name="msg">The object to print in the console</param>
+        /// <param name="context">The UnityObject to highlight to trace the call back to its source</param>
         [Conditional(ENABLE_LOGS_SYMBOL), Conditional("UNITY_EDITOR")]
         public static void LogError(object msg)
         {
@@ -72,10 +76,11 @@ namespace ProjectEssentials.Trace
         }
 
         /// <summary>
-        /// Identique à Debug.Log
+        /// Identical to Debug.LogError, but is only compiled in the editor
+        /// or in a build with "ENABLE_LOGS_IN_BUILD" added as a scripting define symbol
         /// </summary>
-        /// <param name="msg">L'objet à afficher dans la console</param>
-        /// <param name="context">L'objet Unity à surligner pour indiquer la provenance du message</param>
+        /// <param name="msg">The object to print in the console</param>
+        /// <param name="context">The UnityObject to highlight to trace the call back to its source</param>
         [Conditional(ENABLE_LOGS_SYMBOL), Conditional("UNITY_EDITOR")]
         public static void LogError(object msg, Object context)
         {

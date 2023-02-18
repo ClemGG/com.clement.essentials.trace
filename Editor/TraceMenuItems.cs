@@ -4,7 +4,7 @@ using UnityEditor.Build;
 namespace ProjectEssentials.Trace.Editor
 {
     /// <summary>
-    /// Contient les onglets du menu Trace dans la barre d'outils Unity
+    /// Contains all the MenuItems under the "Trace" option in the toolbar
     /// </summary>
     public sealed class TraceMenuItems : IActiveBuildTargetChanged
     {
@@ -17,7 +17,7 @@ namespace ProjectEssentials.Trace.Editor
         #region Propriétés
 
         /// <summary>
-        /// Utilisé par le IActiveBuildTargetChanged
+        /// Used by the IActiveBuildTargetChanged interface
         /// </summary>
         public int callbackOrder { get; }
 
@@ -26,10 +26,10 @@ namespace ProjectEssentials.Trace.Editor
         #region Fonctions publiques
 
         /// <summary>
-        /// Appelée quand la plateforme ciblée change
+        /// Called when the targeted platform changes
         /// </summary>
-        /// <param name="previousTarget">L'ancienne plateforme</param>
-        /// <param name="newTarget">La nouvelle plateforme</param>
+        /// <param name="previousTarget">The old platform</param>
+        /// <param name="newTarget">The new platform</param>
         /// 
         public void OnActiveBuildTargetChanged(BuildTarget previousTarget, BuildTarget newTarget)
         {
@@ -37,8 +37,9 @@ namespace ProjectEssentials.Trace.Editor
 
             if (enableLogs)
             {
-                // Si on doit ajouter ENABLE_LOGS,
-                // on récupère la plateforme cible et on lui ajoute le symbole
+                // If we need to add ENABLE_LOGS_IN_BUILD,
+                // we first get the target platform, then we add the symbol
+                // in its scripting defines list
 
                 NamedBuildTarget targetPlatform = GetCurrentBuildTarget(EditorUserBuildSettings.activeBuildTarget);
 
@@ -49,8 +50,9 @@ namespace ProjectEssentials.Trace.Editor
             }
             else
             {
-                // Si on doit ajouter ENABLE_LOGS,
-                // on récupère la plateforme cible et on lui retire le symbole
+                // If we need to remove ENABLE_LOGS_IN_BUILD,
+                // we first get the target platform, then we remove the symbol
+                // in its scripting defines list
 
                 NamedBuildTarget targetPlatform = GetCurrentBuildTarget(EditorUserBuildSettings.activeBuildTarget);
 
@@ -66,7 +68,7 @@ namespace ProjectEssentials.Trace.Editor
         #region Fonctions privées
 
         /// <summary>
-        /// Permet d'activer ou non les logs dans l'éditeur et les builds
+        /// Enables or disables logs in a standalone build (always logs in the editor)
         /// </summary>
         [MenuItem(ENABLE_LOGS_PATH)]
         private static void EnableLogsMenuBtn()
@@ -76,8 +78,9 @@ namespace ProjectEssentials.Trace.Editor
 
             if (enableLogs)
             {
-                // Si on doit ajouter ENABLE_LOGS,
-                // on récupère la plateforme cible et on lui ajoute le symbole
+                // If we need to add ENABLE_LOGS_IN_BUILD,
+                // we first get the target platform, then we add the symbol
+                // in its scripting defines list
 
                 NamedBuildTarget targetPlatform = GetCurrentBuildTarget(EditorUserBuildSettings.activeBuildTarget);
 
@@ -88,8 +91,9 @@ namespace ProjectEssentials.Trace.Editor
             }
             else
             {
-                // Si on doit ajouter ENABLE_LOGS,
-                // on récupère la plateforme cible et on lui retire le symbole
+                // If we need to remove ENABLE_LOGS_IN_BUILD,
+                // we first get the target platform, then we remove the symbol
+                // in its scripting defines list
 
                 NamedBuildTarget targetPlatform = GetCurrentBuildTarget(EditorUserBuildSettings.activeBuildTarget);
 
@@ -101,10 +105,10 @@ namespace ProjectEssentials.Trace.Editor
         }
 
         /// <summary>
-        /// Retourne la plateforme choisie dans les Build Settings
+        /// Returns the target platform set in the Build Settings
         /// </summary>
-        /// <param name="currentBuildTarget">La plateforme active</param>
-        /// <returns>Le nom de la plateforme active</returns>
+        /// <param name="currentBuildTarget">The active platform</param>
+        /// <returns>The name of the active platform</returns>
         private static NamedBuildTarget GetCurrentBuildTarget(BuildTarget currentBuildTarget)
         {
             return currentBuildTarget switch
@@ -120,14 +124,14 @@ namespace ProjectEssentials.Trace.Editor
         }
 
         /// <summary>
-        /// Ajoute le symbole à la liste des symboles de compilation de la plateforme active
+        /// Adds the symbol to the active platform's scrpting define symbols list
         /// </summary>
-        /// <param name="targetPlatform">La plateforme ciblée</param>
-        /// <param name="scriptingDefineSymbol">Le symbole de compilation de scripts</param>
+        /// <param name="targetPlatform">The targeted platform</param>
+        /// <param name="scriptingDefineSymbol">The scripting define to add</param>
         private static void AddSymbolToBuildTarget(NamedBuildTarget targetPlatform, string scriptingDefineSymbol)
         {
-            // Force l'éditeur à recompiler
-            // si la recompilation auto est désactivée
+            // Forces the editor to recompile
+            // in case automatic domain reload is disabled
 
             EditorApplication.UnlockReloadAssemblies();
 
@@ -145,14 +149,14 @@ namespace ProjectEssentials.Trace.Editor
         }
 
         /// <summary>
-        /// Ajoute le symbole à la liste des symboles de compilation de la plateforme active
+        /// Removes the symbol from the active platform's scrpting define symbols list
         /// </summary>
-        /// <param name="targetPlatform">La plateforme ciblée</param>
-        /// <param name="scriptingDefineSymbol">Le symbole de compilation de scripts</param>
+        /// <param name="targetPlatform">The targeted platform</param>
+        /// <param name="scriptingDefineSymbol">The scripting define to remove</param>
         private static void RemoveSymbolFromBuildTarget(NamedBuildTarget targetPlatform, string scriptingDefineSymbol)
         {
-            // Force l'éditeur à recompiler
-            // si la recompilation auto est désactivée
+            // Forces the editor to recompile
+            // in case automatic domain reload is disabled
 
             EditorApplication.UnlockReloadAssemblies();
 
