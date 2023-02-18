@@ -1,5 +1,5 @@
 {
-  "name": "com.clement.project-essentials.trace",
+  "name": "com.clement.essentials.trace",
   "version": "1.0.0",
   "displayName": "Trace Logs",
   "description": "Replacement package for Unity's default Debug log methods. \nUse this to strip logs automatically from builds if needed.",
